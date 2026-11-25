@@ -1,6 +1,6 @@
 # Collector Desk
 
-A searchable research library for collected X-style posts. React + TypeScript on the front end, Node.js and SQLite behind a read-only API.
+Search an archive of X-style posts, filter by author or date, and export the results as CSV. The demo uses React and TypeScript, with a Node.js API that reads from SQLite.
 
 ![Collector Desk collection view](docs/collection-desktop.png)
 
@@ -14,11 +14,11 @@ A searchable research library for collected X-style posts. React + TypeScript on
 - Import your own normalized JSON locally, with validation and idempotent upserts
 - Use the same workflow on desktop and narrow mobile screens
 
-The included72 posts and5 authors are entirely fictional. The app runs without an X account, cookies, API keys or any external service. It is an archive viewer, not a live X scraper or an official X integration. An existing collector can supply normalized JSON through the documented import boundary; no production collector or private data is included.
+The demo includes 72 fictional posts from five fictional authors. It runs without an X account, cookies, API keys, or an external service. To use your own archive, import normalized JSON from an existing collector; Collector Desk does not fetch posts from X.
 
 ## Run
 
-Requires **Node.js24+** and npm. Node’s built-in SQLite is used; Node may print its experimental SQLite warning.
+Requires **Node.js 24 or later** and npm. The app uses Node’s built-in SQLite module, which may print an experimental feature warning.
 
 ```sh
 npm ci
@@ -34,7 +34,7 @@ Development with Vite hot reload:
 npm run dev
 ```
 
-Open the loopback Vite URL printed in the terminal. The API stays at127.0.0.1:4318.
+Open the loopback Vite URL printed in the terminal. The API stays at `127.0.0.1:4318`.
 
 ## Your own collection
 
@@ -64,7 +64,7 @@ For an existing Chrome installation, set CHROME_PATH to its executable instead o
 
 React → same-origin HTTP API → parameterized SQLite queries. Shared validated filters keep the feed, statistics and CSV consistent. Imports run as a separate local CLI with a single transaction. No runtime dependencies beyond React/ReactDOM; HTTP and SQLite use Node built-ins. Vite, TypeScript and Playwright are development tools.
 
-The UI uses native forms, labels, keyboard submission, focus styles and responsive grid layouts. Browser acceptance covers Chromium desktop1440 and emulated390/320px viewports. Physical iOS/Safari and assistive-technology testing are not claimed.
+The UI uses native forms, labels, keyboard submission, focus styles and responsive grid layouts. Browser checks ran in Chromium at 1440, 390, and 320 px. Safari on physical iOS devices and assistive technologies were not tested.
 
 ## License
 
